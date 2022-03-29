@@ -25,7 +25,16 @@ function createApp(database) {
 
   function parseDate(dateString) {
     if (dateString) {
+      //let temporalDate = Temporal.PlainDate.from(dateString)
+      //console.log(temporalDate)
+      //return temporalDate //new Date(dateString);
       return new Date(dateString);
+    }
+  }
+
+  function parsePlainDate(dateString) {
+    if (dateString) {
+      return Temporal.PlainDate.from(dateString);
     }
   }
 
@@ -76,6 +85,7 @@ function createApp(database) {
   }
 
   function isMonday(date) {
+    //return date.dayOfWeek === 1; //getDay() === 1;
     return date.getDay() === 1;
   }
 
