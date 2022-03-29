@@ -91,16 +91,15 @@ function createApp(database) {
     //return date.getDay() === 1;
   }
 
-  function isHoliday(date, plainDate) {
+  function isHoliday(plainDate, date) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      console.log(row.holiday)
       let holiday = Temporal.PlainDate.from(row.holiday);
       if (
-        plainDate &&
-        plainDate.year === holiday.year &&
-        plainDate.month === holiday.month &&
-        plainDate.day === holiday.day
+        date &&
+        date.year === holiday.year &&
+        date.month === holiday.month &&
+        date.day === holiday.day
       ) {
         return true;
       }
